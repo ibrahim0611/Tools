@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Amazon product research tool with keyword tracking, inventory management, and competitor analysis.">
+    <meta name="keywords" content="Amazon FBA, product research, keyword tracking, inventory management, JungleScout alternative">
+    <title>Product Research Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Research Tool</h1>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Unlock Your Amazon FBA Potential</h2>
+        <p>Track keywords, manage inventory, analyze reviews, and more.</p>
+        <button id="start-trial">Start Free Trial</button>
+    </section>
+
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <h3>Research Keywords</h3>
+            <p>Find high-converting keywords for your products.</p>
+        </div>
+        <div class="feature">
+            <h3>Track Product Performance</h3>
+            <p>Monitor sales, rankings, and profitability.</p>
+        </div>
+        <div class="feature">
+            <h3>Manage Inventory</h3>
+            <p>Stay on top of stock levels and reorder points.</p>
+        </div>
+        <!-- Add more features here -->
+    </section>
+
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-plan">
+            <h3>Monthly Subscription</h3>
+            <p>Start at just $29 per month.</p>
+            <button>Subscribe</button>
+        </div>
+        <div class="pricing-plan">
+            <h3>Yearly Subscription</h3>
+            <p>Unlock the best value at $299/year.</p>
+            <button>Subscribe</button>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"This tool helped me double my sales in just 3 months!"</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Product Research Tool. All rights reserved.</p>
+    </footer>
+
+    <!-- Chatbot Integration -->
+    <div id="chatbot">
+        <button id="chatbot-toggle">Chat with Us</button>
+        <div id="chatbot-window" style="display: none;">
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Ask me anything...">
+        </div>
+    </div>
+
+    <!-- Google AdSense Integration -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+#hero {
+    background: #f4f4f4;
+    padding: 3rem 0;
+}
+
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#chatbot-window {
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chatbot-messages {
+    height: 320px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}// Chatbot functionality
+document.getElementById('chatbot-toggle').addEventListener('click', function() {
+    const chatbotWindow = document.getElementById('chatbot-window');
+    chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+});
+
+document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        const userMessage = this.value;
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        chatbotMessages.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+
+        // Simulate chatbot response
+        const botResponse = getChatbotResponse(userMessage);
+        chatbotMessages.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+
+        this.value = '';
+    }
+});
+
+function getChatbotResponse(message) {
+    if (message.includes("product idea")) {
+        return "Consider exploring trending niches like eco-friendly products or tech gadgets.";
+    } else if (message.includes("competition")) {
+        return "High competition products include phone accessories and fitness gear.";
+    } else {
+        return "I'm here to help! Ask me about product ideas, competition, or pricing strategies.";
+    }
+}
+
+// Fetch product data (example)
+async function fetchProductData(asin) {
+    const response = await fetch(`https://api.example.com/products/${asin}`);
+    const data = await response.json();
+    console.log(data);
+}{
+    "manifest_version": 3,
+    "name": "Product Research Tool",
+    "version": "1.0",
+    "description": "Track keywords, manage inventory, and analyze reviews.",
+    "permissions": ["activeTab", "storage"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Research Tool</title>
+    <script src="popup.js"></script>
+</head>
+<body>
+    <h1>Product Research Tool</h1>
+    <input type="text" id="asin-input" placeholder="Enter ASIN">
+    <button id="fetch-data">Fetch Data</button>
+    <div id="result"></div>
+</body>
+</html>document.getElementById('fetch-data').addEventListener('click', function() {
+    const asin = document.getElementById('asin-input').value;
+    chrome.runtime.sendMessage({ action: 'fetchData', asin: asin }, function(response) {
+        document.getElementById('result').innerText = JSON.stringify(response);
+    });
+});chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action === 'fetchData') {
+        // Simulate fetching data
+        const mockData = {
+            asin: request.asin,
+            title: "Sample Product",
+            price: "$19.99",
+            rating: "4.5"
+        };
+        sendResponse(mockData);
+    }
+});
