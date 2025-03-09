@@ -11,12 +11,27 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Product Research Tool Logo">
-            </div>
-            <nav>
+    /* Navigation Logo */
+nav .nav-logo {
+    display: none; /* Hide by default for larger screens */
+}
+
+@media (max-width: 768px) {
+    nav .nav-logo {
+        display: block; /* Show on smaller screens */
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    nav .nav-logo img {
+        height: 40px; /* Adjust size as needed */
+    }
+
+    /* Hide the main logo on smaller screens */
+    .logo {
+        display: none;
+    }
+}
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#tools">Tools</a></li>
